@@ -82,9 +82,10 @@ public class Main {
       driver.quit();
 
    }
-   @ParameterizedTest
-   @ValueSource(strings = {"src/data1.txt", "src/data2.txt"})
-   public void test1(String fileName) {
+   @Test
+   //@ParameterizedTest
+   //@ValueSource(strings = {"src/data1.txt", "src/data2.txt"})
+   public void test1(/*String fileName*/) {
       driver.findElement(By.xpath("//a[@href='/login']")).click();
 
       driver.findElement(By.xpath("//input[@id=\"Email\"]")).sendKeys(email);
@@ -94,7 +95,7 @@ public class Main {
 
       driver.findElement(By.xpath("//a[@href=\"/digital-downloads\"]")).click();
 
-      try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+      try (BufferedReader br = new BufferedReader(new FileReader(/*fileName*/test1FileName))) {
          String line;
          while ((line = br.readLine()) != null) {
 
